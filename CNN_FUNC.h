@@ -16,9 +16,9 @@ SC_MODULE(cnn_func)
 
 	sc_uint<8> kernel[3][9];
 
-	sc_uint<8> conv_out[3][4];
-	sc_uint<8> relu_out[3][4];
-	sc_uint<8> max_out[3];
+	sc_int<8> conv_out[3][4];
+	sc_int<8> relu_out[3][4];
+	sc_int<8> max_out[3];
 	sc_int<8> temp;
 
 	SC_CTOR(cnn_func)
@@ -79,12 +79,13 @@ void cnn_func<NumClk>::operation()
 								}
 							}
 							conv_out[k][y + 2 * x] = temp + bias[k];
+							//std::cout << conv_out[k][y + 2 * x] << "\n";
 							relu_out[k][y + 2 * x] = (conv_out[k][y + 2 * x] > 0 ? conv_out[k][y + 2 * x] : 0);
 							max_out[k] = (max_out[k] > relu_out[k][y + 2 * x] ? max_out[k] : relu_out[k][y + 2 * x]);
 							temp = 0;
 						}
 					}
-					std::cout << "max_out[" << k << "]: " << max_out[k] << "\n";
+					//std::cout << "max_out[" << k << "]: " << max_out[k] << "\n";
 				}
 
 				for (int i = 0; i < NumClk - 1; i++)
@@ -100,7 +101,7 @@ void cnn_func<NumClk>::operation()
 					pattern.write("100");
 				}
 
-				std::cout << "pattern: " << pattern.read() << "\n";
+				//std::cout << "pattern: " << pattern.read() << "\n";
 				done.write(SC_LOGIC_1);
 			}
 			delete[] mem;

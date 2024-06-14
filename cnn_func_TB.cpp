@@ -43,7 +43,7 @@ void cnn_func_TB::displaying()
 {
 	while (true){
 		if (done == '1')
-			cout << "P: " << pattern << sc_time_stamp() << "\n" << endl;
+			cout << "Pattern: " << pattern <<"   in: " << sc_time_stamp() << "\n" << endl;
 		wait();
 	}
 }
