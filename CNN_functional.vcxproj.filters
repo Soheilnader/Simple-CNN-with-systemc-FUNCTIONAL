@@ -18,12 +18,15 @@
     <ClCompile Include="cnn_func_TB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CNN_FUNC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CNN_FUNC_TB.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

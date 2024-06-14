@@ -1,6 +1,5 @@
 #include <iostream>
 #include <systemc.h>
-
 using namespace std;
 
 const sc_uint<8> kernel[3][9] = {
